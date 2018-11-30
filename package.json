@@ -1,5 +1,6 @@
 {
   "name": "learn-react",
+  "author": "大漠穷秋",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
