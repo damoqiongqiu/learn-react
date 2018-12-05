@@ -5,9 +5,6 @@ class Father extends Component {
     constructor() {
         super();
         console.log("Father constructor...");
-        this.state = {
-            childVisible: false
-        }
     }
 
     componentWillMount() {
@@ -35,13 +32,6 @@ class Father extends Component {
     //     console.log("Father shouldComponentUpdate...");
     // }
 
-    renderChild() {
-        if (!this.state.childVisible) return null;
-        return (
-            <Child userId="damoqiongqiu"></Child>
-        );
-    }
-
     render() {
         console.log("Father render...");
         return (
@@ -49,10 +39,11 @@ class Father extends Component {
                 <div className="panel panel-primary">
                     <div className="panel-heading">Father组件</div>
                     <div className="panel-body">
-                        {this.renderChild()}
+                        <Child></Child>
+                        <Child></Child>
+                        <Child></Child>
                     </div>
                     <div className="panel-footer">
-                        <button className="btn btn-danger" onClick={() => this.clickHandler()}>切换可见性</button>
                     </div>
                 </div>
             </div >
@@ -61,18 +52,6 @@ class Father extends Component {
 
     componentWillUnmount() {
         console.log("Father componentWillUnmount...");
-    }
-
-    clickHandler() {
-        if (this.state && this.state.childVisible) {
-            this.setState({
-                childVisible: false
-            });
-        } else {
-            this.setState({
-                childVisible: true
-            });
-        }
     }
 }
 

@@ -1,6 +1,10 @@
 import React, { Component } from "react";
+import uuidv4 from 'uuid/v4';
+import eventBus from "./EventBus";
 
 class Child extends Component {
+    id = uuidv4();
+
     constructor() {
         super();
         console.log(this.props);//注意：this.props在构造的时候还没有赋值
@@ -13,7 +17,12 @@ class Child extends Component {
     }
 
     componentDidMount() {
-        console.log("Child componentDidMount...");
+        console.log("Child componentDidMount..." + this.id);
+        eventBus.addListener("myEvent", (event) => {
+            console.log("事件来源>");
+            console.log(event);
+            console.log("事件接受者>" + this.id);
+        });
     }
 
     componentWillReceiveProps() {
@@ -39,8 +48,11 @@ class Child extends Component {
                 <div className="panel panel-primary">
                     <div className="panel-heading">Child组件</div>
                     <div className="panel-body">
+                        组件ID：{this.id}
                     </div>
-                    <div className="panel-footer"></div>
+                    <div className="panel-footer">
+                        <button className="btn btn-success" onClick={(e) => eventBus.emit("myEvent", this)}>触发事件</button>
+                    </div>
                 </div>
             </div>
         );
@@ -48,6 +60,7 @@ class Child extends Component {
 
     componentWillUnmount() {
         console.log("Child componentWillUnmount...");
+        eventBus.addListener("myEvent");
     }
 }
 
