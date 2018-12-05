@@ -5,6 +5,9 @@ class Father extends Component {
     constructor() {
         super();
         console.log("Father constructor...");
+        this.state = {
+            childVisible: false
+        }
     }
 
     componentWillMount() {
@@ -27,8 +30,16 @@ class Father extends Component {
         console.log("Father componentDidUpdate...");
     }
 
-    shouldComponentUpdate() {
-        console.log("Father shouldComponentUpdate...");
+    //一般情况下不要覆盖这个生命周期方法，如果覆盖了这个方法，什么时候个更新组件就交由你自己控制了
+    // shouldComponentUpdate() {
+    //     console.log("Father shouldComponentUpdate...");
+    // }
+
+    renderChild() {
+        if (!this.state.childVisible) return null;
+        return (
+            <Child userId="damoqiongqiu"></Child>
+        );
     }
 
     render() {
@@ -38,11 +49,13 @@ class Father extends Component {
                 <div className="panel panel-primary">
                     <div className="panel-heading">Father组件</div>
                     <div className="panel-body">
-                        <Child clickHandler={this.clickHandler} userId="damoqiongqiu"></Child>
+                        {this.renderChild()}
                     </div>
-                    <div className="panel-footer"></div>
+                    <div className="panel-footer">
+                        <button className="btn btn-danger" onClick={() => this.clickHandler()}>切换可见性</button>
+                    </div>
                 </div>
-            </div>
+            </div >
         );
     }
 
@@ -51,7 +64,15 @@ class Father extends Component {
     }
 
     clickHandler() {
-        alert("父层传递进来的事件处理函数！");
+        if (this.state && this.state.childVisible) {
+            this.setState({
+                childVisible: false
+            });
+        } else {
+            this.setState({
+                childVisible: true
+            });
+        }
     }
 }
 

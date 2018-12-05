@@ -39,7 +39,6 @@ class Child extends Component {
                 <div className="panel panel-primary">
                     <div className="panel-heading">Child组件</div>
                     <div className="panel-body">
-                        <button className="btn btn-danger" onClick={this.props.clickHandler}>测试Props</button>
                     </div>
                     <div className="panel-footer"></div>
                 </div>
