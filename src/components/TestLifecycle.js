@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 /**
- * 共9个生命周期事件
+ * 共9个生命周期事件，分4类
  * 1、构造
  * 2、mount
  * 3、update
