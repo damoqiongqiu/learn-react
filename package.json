@@ -19,6 +19,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.2.1",
     "@babel/plugin-proposal-decorators": "^7.2.0",
+    "babel": "^6.23.0",
     "babel-jest": "^23.6.0",
     "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "enzyme": "^3.7.0",
@@ -26,6 +27,7 @@
     "enzyme-to-json": "^3.3.5",
     "jest": "^23.6.0",
     "jest-cli": "^23.6.0",
+    "react-test-renderer": "^16.6.3",
     "redux-mock-store": "^1.5.3"
   },
   "eslintConfig": {
@@ -38,8 +40,8 @@
     "not op_mini all"
   ],
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
     ],
     "testMatch": [
       "<rootDir>/__jest__/**/__tests__/**/*.{js,jsx,mjs}",
@@ -48,8 +50,14 @@
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/jest-transformer.js"
     },
-    "transformIgnorePatterns": [
-      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
-    ]
+    "testPathIgnorePatterns": [
+      "<rootDir>/.next/",
+      "<rootDir>/node_modules/"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,mjs}"
+    ],
+    "coverageDirectory": "<rootDir>/test/coverage"
   }
 }

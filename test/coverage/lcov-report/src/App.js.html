@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/App.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="..\prettify.css" />
+    <link rel="stylesheet" href="..\base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(..\sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="..\index.html">All files</a> / <a href="index.html">src</a> App.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>0/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/2</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>0/9</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line low'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, { Component } from 'react';</span>
+<span class="cstat-no" title="statement not covered" >import 'bootstrap/dist/css/bootstrap.css';</span>
+<span class="cstat-no" title="statement not covered" >import 'bootstrap/dist/css/bootstrap-theme.css';</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >import './App.css';</span>
+&nbsp;
+/**
+ * JSX 的作用与其它框架中的模板表达式比较类似，必须掌握以下技术细节：
+ * 1、引入外部CSS，在HTML标签中使用样式
+ * 2、获取动态值
+ * 3、标签模板里面支持函数调用
+ * 4、标签内部支持基本表达式
+ * 5、JS代码与HTML代码混写
+ * 6、ref（真实项目中很少用）
+ * 7、事件写法
+ */
+&nbsp;
+class App extends Component {
+  gameName = "星际争霸";
+&nbsp;
+  names = ['人族', '虫族', '神族'];
+&nbsp;
+  getUserName() {
+<span class="cstat-no" title="statement not covered" >    return "大漠穷秋";</span>
+  }
+&nbsp;
+  render() <span class="cstat-no" title="statement not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;div className="container-fluid"&gt;
+        &lt;div className="panel panel-primary"&gt;
+          &lt;div className="panel-heading"&gt;面板标题&lt;/div&gt;
+          &lt;div className="panel-body"&gt;
+            &lt;div className="list-group"&gt;
+              &lt;a href="#" className="list-group-item disabled"&gt;
+                Cras justo odio
+              &lt;/a&gt;
+              &lt;a href="#" className="list-group-item"&gt;Dapibus ac facilisis in&lt;/a&gt;
+              &lt;a href="#" className="list-group-item"&gt;Morbi leo risus&lt;/a&gt;
+              &lt;a href="#" className="list-group-item"&gt;Porta ac consectetur ac&lt;/a&gt;
+              &lt;a href="#" className="list-group-item"&gt;Vestibulum at eros&lt;/a&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div className="panel-footer"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+&nbsp;
+        &lt;div className="panel panel-primary"&gt;
+          &lt;div className="panel-heading"&gt;面板标题&lt;/div&gt;
+          &lt;div className="panel-body"&gt;
+            &lt;p&gt;游戏名称：{this.gameName}&lt;/p&gt;
+            &lt;p&gt;玩家姓名：{this.getUserName()}&lt;/p&gt;
+            &lt;p&gt;随机种族：{Math.ceil(Math.random() * 10) % 2 == 0 ? "人族" : "虫族"}&lt;/p&gt;
+            &lt;p&gt;全部种族列表&lt;/p&gt;
+            {
+              this.names.map(<span class="fstat-no" title="function not covered" >function (</span>name, index) {
+<span class="cstat-no" title="statement not covered" >                return &lt;p key={index}&gt;{index}-{name}!&lt;/p&gt;</span>
+              })
+            }
+            &lt;p ref="myText"&gt;这是被引用的元素&lt;/p&gt;
+            &lt;button onClick={<span class="fstat-no" title="function not covered" >(</span>e) =&gt; { <span class="cstat-no" title="statement not covered" >alert(this.refs.myText.innerHTML); }}&gt;测试ref&lt;/button&gt;</span>
+          &lt;/div&gt;
+          &lt;div className="panel-footer"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+&nbsp;
+export default App;
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Dec 06 2018 19:47:50 GMT+0800 (中国标准时间)
+</div>
+</div>
+<script src="..\prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="..\sorter.js"></script>
+</body>
+</html>
