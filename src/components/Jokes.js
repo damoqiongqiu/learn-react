@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
+import JokeItem from "./JokeItem";
 
 /**
  * 段子
@@ -10,12 +12,18 @@ class Jokes extends Component {
 
     render() {
         return (
-            <div class="list-group">
-                <a href="#" class="list-group-item active">段子列表</a>
-                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item">Morbi leo risus</a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item">Vestibulum at eros</a>
+            <div className="row">
+                <div className="col-md-3">
+                    <div className="list-group">
+                        <a href="#" className="list-group-item active">二级导航</a>
+                        <NavLink to={`/jokes/joke-item/1`} className="list-group-item">段子1</NavLink>
+                        <NavLink to={`/jokes/joke-item/2`} className="list-group-item">段子2</NavLink>
+                        <NavLink to={`/jokes/joke-item/3`} className="list-group-item">段子3</NavLink>
+                    </div>
+                </div>
+                <div className="col-md-9">
+                    <Route path={`/jokes/joke-item/:jokeId`} component={JokeItem} />
+                </div>
             </div>
         );
     }
