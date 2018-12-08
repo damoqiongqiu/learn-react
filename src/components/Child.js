@@ -3,13 +3,13 @@ import React, { Component } from "react";
 class Child extends Component {
     constructor() {
         super();
-        console.log(this.props);//注意：this.props在构造的时候还没有赋值
         console.log("Child constructor...");
+        console.log(this.props);//注意：this.props在构造的时候还没有赋值
     }
 
     componentWillMount() {
-        console.log(this.props);//构造函数执行完成之后this.props已经被赋值
         console.log("Child componentWillMount...");
+        console.log(this.props);//构造函数执行完成之后this.props已经被赋值
     }
 
     componentDidMount() {
