@@ -10,12 +10,12 @@ class Jokes extends Component {
 
     render() {
         return (
-            <div class="list-group">
-                <a href="#" class="list-group-item active">段子列表</a>
-                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                <a href="#" class="list-group-item">Morbi leo risus</a>
-                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                <a href="#" class="list-group-item">Vestibulum at eros</a>
+            <div className="list-group">
+                <a href="#" className="list-group-item active">段子列表</a>
+                <a href="#" className="list-group-item">Dapibus ac facilisis in</a>
+                <a href="#" className="list-group-item">Morbi leo risus</a>
+                <a href="#" className="list-group-item">Porta ac consectetur ac</a>
+                <a href="#" className="list-group-item">Vestibulum at eros</a>
             </div>
         );
     }
