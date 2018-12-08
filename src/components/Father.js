@@ -39,9 +39,20 @@ class Father extends Component {
                 <div className="panel panel-primary">
                     <div className="panel-heading">Father组件</div>
                     <div className="panel-body">
-                        <Child></Child>
-                        <Child></Child>
-                        <Child></Child>
+                        <div className="col-md-3">
+                            <div class="list-group">
+                                <a href="#" class="list-group-item active">
+                                    二级菜单
+                                </a>
+                                <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+                                <a href="#" class="list-group-item">Morbi leo risus</a>
+                                <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+                                <a href="#" class="list-group-item">Vestibulum at eros</a>
+                            </div>
+                        </div>
+                        <div className="col-md-9">
+                            <Child></Child>
+                        </div>
                     </div>
                     <div className="panel-footer">
                     </div>
