@@ -5,7 +5,7 @@ import React, { Component } from "react";
  * @param {*} OriginComponent 
  */
 function loggerWrapper(OriginComponent) {
-    console.log("loggerWrapper...");
+    console.log("loggerWrapper..." + OriginComponent.getName());
     return class extends Component {
         render() {
             //把接收到的参数全部传递给被包装的组件
