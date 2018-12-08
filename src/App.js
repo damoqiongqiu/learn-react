@@ -16,12 +16,19 @@ import './App.css';
  */
 
 class App extends Component {
+
   gameName = "星际争霸";
 
   names = ['人族', '虫族', '神族'];
 
+  userName = "大漠穷秋1111";
+
   getUserName() {
-    return "大漠穷秋";
+    return this.userName;
+  }
+
+  clickHandler(text) {
+    alert(text);
   }
 
   render() {
@@ -52,11 +59,11 @@ class App extends Component {
             <p>全部种族列表</p>
             {
               this.names.map(function (name, index) {
-                return <p key={index}>{index}-{name}!</p>
+                return <p key={index}>{index}-{name}!</p>;
               })
             }
             <p ref="myText">这是被引用的元素</p>
-            <button onClick={(e) => { alert(this.refs.myText.innerHTML); }}>测试ref</button>
+            <button className="btn btn-danger" onClick={(e) => { this.clickHandler(this.refs.myText.innerHTML); }}>测试ref</button>
           </div>
           <div className="panel-footer"></div>
         </div>
