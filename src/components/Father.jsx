@@ -58,11 +58,7 @@ class Father extends Component {
             </div >
         );
     }
-
-    componentWillUnmount() {
-        console.log("Father componentWillUnmount...");
-    }
-
+    
     clickHandler() {
         if (this.state && this.state.childVisible) {
             this.setState({
@@ -73,6 +69,10 @@ class Father extends Component {
                 childVisible: true
             });
         }
+    }
+
+    componentWillUnmount() {
+        console.log("Father componentWillUnmount...");
     }
 }
 
