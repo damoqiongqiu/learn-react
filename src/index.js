@@ -1,14 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import * as serviceWorker from './serviceWorker';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
-import './index.css';
-import App from './App';
+import ReactDOM from 'react-dom/client';
+import App from './app/App';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.scss';
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    // <React.StrictMode>//严格模式只在开发状态有效，会导致所有 useEffect() 执行两次
+    <App />
+    // </React.StrictMode>
+);
