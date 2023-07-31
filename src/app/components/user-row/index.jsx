@@ -1,7 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
+import { useDispatch } from 'react-redux'
+import { deleteUser } from '../userSlice';
 
 function UserRow(props) {
-    console.log(props);
+    const dispatch = useDispatch();
+    const removeHandler = (id) => {
+        dispatch(deleteUser(id));
+    }
+
     return (
         <div style={
             {
@@ -24,7 +30,9 @@ function UserRow(props) {
             <button
                 className="btn btn-danger"
                 onClick={
-                    props.removeHandler(props.userInfo.id)
+                    () => {
+                        removeHandler(props.userInfo.id);
+                    }
                 }
             >删除</button>
         </div>

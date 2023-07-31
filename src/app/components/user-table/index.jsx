@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import UserDetail from "../user-row";
+import { useSelector, useDispatch } from 'react-redux'
+import { addUserList } from '../userSlice';
 
 import userListMock from "./user-list.mock.json";
 
@@ -11,14 +13,12 @@ import userListMock from "./user-list.mock.json";
  * @returns 
  */
 function UserTable(props) {
-    const [userList, setUserList] = useState(userListMock);
+    const dispatch = useDispatch();
+    const userList = useSelector((state) => state.userList);
 
-    const removeHandler = (id) => {
-        console.log(id);
-        return () => {
-            setUserList(userList.filter(user => user.id !== id));
-        }
-    }
+    useEffect(() => {
+        dispatch(addUserList(userListMock));
+    }, []);
 
     return (
         <div className="container-fluid">
@@ -34,7 +34,6 @@ function UserTable(props) {
                                         className="list-group-item"
                                     >
                                         <UserDetail
-                                            removeHandler={removeHandler}
                                             userInfo={user}
                                         >
                                         </UserDetail>
