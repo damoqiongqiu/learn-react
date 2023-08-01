@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './App.scss';
 
 /**
- * 本节目标：上手体验 JSX/useEffect/useState 
- * step1: 在 HTML 标签中获取 time
- * step2: 用 useEffect 实现定时器
- * step3: 修改外观
- * step4: 把时钟逻辑抽离成一个组件
- * 完成以上步骤，就完成了 Quick Start 这个小节的目标。
+ * 本节目标：改成 SCSS ，安装配置好 Bootstrap 3.3.7  
  * @returns 
  */
 function App() {
