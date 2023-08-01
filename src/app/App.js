@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import MyClock from './components/my-clock';
 import './App.scss';
 
@@ -13,6 +13,8 @@ import './App.scss';
  * @returns 
  */
 function App() {
+  const pRef = useRef(null);
+
   return (
     // 这里的 className 会被编译成 class
     <div className="App">
@@ -25,6 +27,7 @@ function App() {
             fontSize: "32px"//内联的 style 需要用驼峰法则命名，这里不是 font-size
           }
         }
+        ref={pRef}
       >
         1 + 1={1 + 1}
       </p>
@@ -32,8 +35,10 @@ function App() {
         className='btn btn-success btn-lg'
         onClick={
           (e) => {
-            console.log(e);
-            alert(e);
+            // console.log(e);
+            // alert(e);
+            console.log(pRef.current.innerHTML);
+            alert(pRef.current.innerHTML);
           }
         }
       >确定</button>
