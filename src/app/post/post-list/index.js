@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { func } from "prop-types";
 
 function PostList(props) {
     const [postList, setPostList] = useState([]);
