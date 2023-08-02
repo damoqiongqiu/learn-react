@@ -25,10 +25,15 @@ function NavBar(props) {
                 <div className="collapse navbar-collapse">
                     <ul className="nav navbar-nav">
                         <li id="home" className={activeId === "home" ? "active" : ""} onClick={toogleNav}>
-                            <NavLink to="/post-list">首页</NavLink>
+                            <NavLink to="/post/post-list">首页</NavLink>
                         </li>
                         <li id="write" className={activeId === "write" ? "active" : ""} onClick={toogleNav}>
-                            <NavLink to="/write">创作</NavLink>
+                            <NavLink to="/post/write">创作</NavLink>
+                        </li>
+                    </ul>
+                    <ul className="nav navbar-nav navbar-right">
+                        <li id="manage" className={activeId === "manage" ? "active" : ""} onClick={toogleNav}>
+                            <NavLink to="/manage/post">管理</NavLink>
                         </li>
                     </ul>
                 </div>
