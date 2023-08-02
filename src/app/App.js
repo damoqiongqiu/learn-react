@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import PostList from './components/post-list';
+import WritePost from './components/write-post';
 import HotPost from './components/hot-post';
 import NavBar from './components/nav-bar';
 
@@ -16,7 +17,7 @@ function App() {
             <div className="col-md-9">
               <Routes >
                 <Route path="/post-list" element={<PostList page={1}></PostList>} />
-                <Route path="/write" element={<PostList></PostList>} />
+                <Route path="/write" element={<WritePost></WritePost>} />
                 <Route path="*" element={<PostList></PostList>} />
               </Routes >
             </div>
