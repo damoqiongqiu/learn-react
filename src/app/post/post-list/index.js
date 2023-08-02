@@ -1,12 +1,45 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { func } from "prop-types";
 
 function PostList(props) {
     const [postList, setPostList] = useState([]);
 
+    const createAxiosInstance = () => {
+        // 创建 Axios 实例
+        const api = axios.create();
+
+        // 请求拦截器
+        api.interceptors.request.use(
+            (config) => {
+                // 在每一个请求头部添加 Authorization 字段，其内容为 token
+                // config.headers['Authorization'] = 'Bearer your-access-token';
+                return config;
+            },
+            (error) => {
+                // 对请求错误做些什么
+                return Promise.reject(error);
+            }
+        );
+
+        // 响应拦截器
+        api.interceptors.response.use(
+            (response) => {
+                // 这里可以对响应的数据进行处理，所有请求的响应都会先经过这里
+                console.log("全局响应拦截器---");
+                console.log(response);
+                return response;
+            },
+            (error) => {
+                return Promise.reject(error);
+            }
+        );
+
+        return api;
+    };
+
     useEffect(() => {
-        // 在组件挂载时发起数据请求
-        axios.get('http://localhost:3001/postList') // 替换成你的 API 地址
+        createAxiosInstance().get('http://localhost:3001/postList') // 替换成你的 API 地址
             .then(response => {
                 // 请求成功，设置数据
                 setPostList(response.data);
