@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
-import postListMock from "./post-list.mock.json";
+import axios from "axios";
 
 function PostList(props) {
     const [postList, setPostList] = useState([]);
 
     useEffect(() => {
-        setPostList(postListMock);
+        // 在组件挂载时发起数据请求
+        axios.get('http://localhost:3001/postList') // 替换成你的 API 地址
+            .then(response => {
+                // 请求成功，设置数据
+                setPostList(response.data);
+            })
+            .catch(error => {
+                console.error('Error fetching :', error);
+            });
     }, []);
 
     return (

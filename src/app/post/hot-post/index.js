@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import hotPostMock from "./hot-post.mock.json";
 
 function PostList(props) {
     const [postList, setPostList] = useState([]);
 
     useEffect(() => {
-        setPostList(hotPostMock);
+
     }, []);
 
     return (
