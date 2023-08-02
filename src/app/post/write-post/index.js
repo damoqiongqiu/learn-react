@@ -16,6 +16,8 @@ function WritePost(props) {
         //整理成 JSON 格式
         const formJson = Object.fromEntries(formData.entries());
         console.log(formJson);
+
+        //接下来就可以提交到服务器了，在下一节中我们会介绍如何使用 axios 发送请求。
     }
 
     return (
