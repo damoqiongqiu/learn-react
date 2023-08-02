@@ -7,6 +7,20 @@ import NavBar from './components/nav-bar';
 
 import './App.scss';
 
+/**
+ * 本节目标：
+ * step1: 理解客户端路由的概念
+ * step2: 安装配置 react-router-dom
+ * step3: 使用 react-router-dom 实现路由跳转
+ * step4: 使用 react-router-dom 实现路由参数传递
+ * 
+ * 下一节：
+ * step5: 使用 react-router-dom 实现嵌套路由
+ * step6: 使用 react-router-dom 实现路由守卫
+ * step7: 使用 react-router-dom 实现路由懒加载
+ * 
+ * @returns 
+ */
 function App() {
   return (
     <Router>
