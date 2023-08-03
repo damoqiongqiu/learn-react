@@ -1,63 +1,47 @@
 {
   "name": "learn-react",
-  "author": "大漠穷秋",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest __jest__/__tests__",
-    "test:watch": "jest --watch",
-    "eject": "react-scripts eject"
-  },
-  "dependencies": {
-    "bootstrap": "^4.1.3",
-    "react": "^16.6.3",
-    "react-dom": "^16.6.3",
-    "react-scripts": "2.1.1"
-  },
-  "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.2.1",
-    "@babel/plugin-proposal-decorators": "^7.2.0",
-    "babel": "^6.23.0",
-    "babel-jest": "^23.6.0",
-    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
-    "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.7.0",
-    "enzyme-to-json": "^3.3.5",
-    "jest": "^23.6.0",
-    "jest-cli": "^23.6.0",
-    "react-test-renderer": "^16.6.3",
-    "redux-mock-store": "^1.5.3"
+    "json-server": "json-server --watch src/mock-data/hot-post.mock.json --port 3001",
+    "dev": "concurrently \"npm start\" \"npm run json-server\"",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
-  "jest": {
-    "setupFiles": [
-      "<rootDir>/jest.setup.js"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
     ],
-    "testMatch": [
-      "<rootDir>/__jest__/**/__tests__/**/*.{js,jsx,mjs}",
-      "<rootDir>/__jest__/**/?(*.)(spec|test).{js,jsx,mjs}"
-    ],
-    "transform": {
-      "^.+\\.(js|jsx|mjs)$": "<rootDir>/jest-transformer.js"
-    },
-    "testPathIgnorePatterns": [
-      "<rootDir>/.next/",
-      "<rootDir>/node_modules/"
-    ],
-    "collectCoverage": true,
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,mjs}"
-    ],
-    "coverageDirectory": "<rootDir>/test/coverage"
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "bootstrap": "^3.3.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "6.13.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "concurrently": "^8.2.0",
+    "json-server": "^0.17.3",
+    "sass": "^1.64.1",
+    "sass-loader": "^13.3.2"
   }
 }
