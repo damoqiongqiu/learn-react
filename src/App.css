@@ -7,6 +7,7 @@
   pointer-events: none;
 }
 
+/* 这里是 CSS3 的 Media Query 语法，用来实现响应式设计，在 CSS 相关的小节中，老师会详细解释语法细节。 */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
