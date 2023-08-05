@@ -8,6 +8,7 @@
 }
 
 /* 这里是 CSS3 的 Media Query 语法，用来实现响应式设计，在 CSS 相关的小节中，老师会详细解释语法细节。 */
+/* 请阅读：https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_media_queries/Using_media_queries  */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
