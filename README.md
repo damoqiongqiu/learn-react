@@ -31,9 +31,10 @@
 21. high-order-component
 22. hooks-basic
 23. hooks-custom
-24. state-context
-25. state-react-redux
-26. stateless-component
-27. jest
-28. jasmine-syntax
-29. cypress
+24. hooks-i18n
+25. state-context
+26. state-react-redux
+27. stateless-component
+28. jest
+29. jasmine-syntax
+30. cypress
