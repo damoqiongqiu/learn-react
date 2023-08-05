@@ -4,8 +4,6 @@ import usePostList from './use-post-list';
 function PostList(props) {
     const { postList, isLoading } = usePostList();
 
-    console.log(postList, isLoading);
-
     if (isLoading) {
         return <div>Loading...</div>;
     }
