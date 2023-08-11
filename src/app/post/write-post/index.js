@@ -22,8 +22,11 @@ const schema = {
             "type": "boolean"
         },
         "tag": {
-            "tagValidator": true,
-            "errorMessage": "标签长度在 2 到 12 个字符之间。",
+            "anyOf": [
+                { "type": 'string', "maxLength": 0 }, // 允许为空
+                { "type": 'string', "minLength": 2, "maxLength": 12 } // 长度在2到12之间
+            ],
+            "errorMessage": "标签长度在 2 到 12 个字符之间。"
         }
     },
     "required": ["title", "content"]
@@ -31,21 +34,6 @@ const schema = {
 const ajv = new Ajv({ allErrors: true });
 // 添加 ajv-errors 插件
 ajvErrors(ajv);
-//tag 字段的校验规则比较复杂：当用户输入了 tag 字段时，才进行校验；如果用户没有输入 tag 字段的内容，请不要强制校验，因为 tag 不是必填字段。
-//这里需要自定义一个校验函数
-ajv.addKeyword('tagValidator', {
-    validate: function (schema, data) {
-        if (data.trim() === '') {
-            return true;
-        }
-        let temp = data.trim();
-        if (temp.length >= 2 && temp.length <= 12) {
-            return true;
-        }
-        return false;
-    },
-    errors: false
-});
 //compile 方法返回一个校验函数， compile 的速度比较慢，所以我们只需要在组件初始化时调用一次即可。
 const validate = ajv.compile(schema);
 
