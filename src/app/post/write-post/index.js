@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import Ajv from 'ajv';
+import ajvErrors from 'ajv-errors';
 
 /**
- * 表单校验案例
+ * ajv.js 表单校验案例
  */
 function WritePost(props) {
     const [postDetail, setPostDetail] = useState({
@@ -10,16 +12,81 @@ function WritePost(props) {
         isOriginal: true,
         tag: '',
     });
-
-    const [errors, setErrors] = useState({
-        title: '',
-        content: '',
-        tag: '',
+    // 表单输入项数据规格定义
+    const schema = {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 32,
+                "errorMessage": "标题长度在 1 到 32 个字符之间。"
+            },
+            "content": {
+                "type": "string",
+                "minLength": 10,
+                "maxLength": 200,
+                "errorMessage": "内容长度在 10 到 200 个字符之间。"
+            },
+            "isOriginal": {
+                "type": "boolean"
+            },
+            "tag": {
+                "tagValidator": true,
+                "errorMessage": "标签长度在 2 到 12 个字符之间。",
+            }
+        },
+        "required": ["title", "content"]
+    }
+    const [errors, setErrors] = useState({});
+    const ajv = new Ajv({ allErrors: true });
+    // 添加 ajv-errors 插件
+    ajvErrors(ajv);
+    //tag 字段的校验规则比较复杂：当用户输入了 tag 字段时，才进行校验；如果用户没有输入 tag 字段的内容，请不要强制校验，因为 tag 不是必填字段。
+    //这里需要自定义一个校验函数
+    ajv.addKeyword('tagValidator', {
+        validate: function (schema, data) {
+            if (data.trim() === '') {
+                return true;
+            }
+            let temp = data.trim();
+            if (temp.length >= 2 && temp.length <= 12) {
+                return true;
+            }
+            return false;
+        },
+        errors: false
     });
+    const validate = ajv.compile(schema);
+
+    // 表单输入变更处理函数
+    const handleChange = (event) => {
+        const { name, value, type, checked } = event.target;
+        // 处理 checkbox 输入项
+        const newValue = type === 'checkbox' ? checked : value;
+        setPostDetail({
+            ...postDetail,
+            [name]: newValue,
+        });
+    };
 
     const handleSubmit = (e) => {
         //阻止浏览器默认的跳转行为
         e.preventDefault();
+
+        const isValid = validate(postDetail);
+        setErrors({});
+
+        if (!isValid) {
+            const fieldErrors = {};
+            validate?.errors.forEach((error) => {
+                const field = error.instancePath.substring(1);
+                fieldErrors[field] = error.message;
+            });
+            setErrors(fieldErrors);
+            console.log(fieldErrors);
+            return;
+        }
 
         //通过 e.target 获得表单实例
         const form = e.target;
@@ -34,49 +101,6 @@ function WritePost(props) {
         console.log(formJson);
 
         //接下来就可以提交到服务器了，在下一节中我们会介绍如何使用 axios 发送请求。
-    };
-
-    // 表单校验函数
-    const validateForm = () => {
-        let valid = true;
-        const newErrors = {
-            title: '',
-            content: '',
-            tag: '',
-        };
-
-        // 校验标题长度是否在2到32个字符之间
-        if (postDetail.title.trim().length < 2 || postDetail.title.trim().length > 32) {
-            newErrors.title = '标题长度应在2到32个字符之间';
-            valid = false;
-        }
-
-        // 校验内容长度是否在10到200个字符之间
-        if (postDetail.content.trim().length < 10 || postDetail.content.trim().length > 200) {
-            newErrors.content = '内容长度应在10到200个字符之间';
-            valid = false;
-        }
-
-        // 校验标签长度是否在2到32个字符之间
-        if (postDetail.tag.trim().length < 2 || postDetail.tag.trim().length > 32) {
-            newErrors.tag = '标签长度应在2到32个字符之间';
-            valid = false;
-        }
-
-        // 更新错误状态
-        setErrors(newErrors);
-        return valid;
-    };
-
-    // 表单输入变更处理函数
-    const handleChange = (event) => {
-        const { name, value, type, checked } = event.target;
-        // 处理 checkbox 输入项
-        const newValue = type === 'checkbox' ? checked : value;
-        setPostDetail({
-            ...postDetail,
-            [name]: newValue,
-        });
     };
 
     return (
@@ -131,7 +155,7 @@ function WritePost(props) {
                         {errors.tag && <span className="text-danger">{errors.tag}</span>}
                     </div>
 
-                    <button type="submit" className="btn btn-success" onClick={validateForm}>
+                    <button type="submit" className="btn btn-success">
                         提交
                     </button>
                 </form>
