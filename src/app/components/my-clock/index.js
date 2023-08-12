@@ -13,6 +13,7 @@ function MyClock() {
 
     return (
         // React 要求组件的返回值必须是单个根标签，所以这里用一个空标签包裹起来
+        // 项目里面有一些 CSS 是和 HTML 标签结构有关系，此时我们包一层空标签 <></>
         <>
             <h1>React Clock</h1>
             <h2>{time.toLocaleString()}.</h2>

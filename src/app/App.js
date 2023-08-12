@@ -19,26 +19,33 @@ function App() {
     // 这里的 className 会被编译成 class
     <div className="App">
       <MyClock />
+
       {/* JSX 标签中可以进行基本的表达式运算 */}
-      <p style=
+      <p style={
+        //JS 对象字面值
         {
-          {
-            color: "#ff3300",
-            fontSize: "32px"//内联的 style 需要用驼峰法则命名，这里不是 font-size
-          }
+          color: "#ff3300",
+          fontSize: "32px"//内联的 style 需要用驼峰法则命名，这里不是 font-size
         }
+      }
         ref={pRef}
       >
-        1 + 1={1 + 1}
+        {/* 花括号里面可以写简单的数学运算 */}
+        1 + 1024={1 + 1024}
+        <br />
+        Math.sin(Math.PI / 2)={Math.sin(Math.PI / 2)}
+        <br />
+        Math.cos(Math.PI/2)={Math.cos(Math.PI / 2)}
       </p>
+
       <button
         className='btn btn-success btn-lg'
+        //HTML 标准里面是 click 事件，但是在 JSX 里面是 onClick
         onClick={
           (e) => {
             // console.log(e);
-            // alert(e);
             console.log(pRef.current.innerHTML);
-            alert(pRef.current.innerHTML);
+            console.log(pRef.current.innerHTML);
           }
         }
       >确定</button>
